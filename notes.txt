@@ -1,0 +1,90 @@
+1- in react 
+        folders structure :
+
+            - src (main folder)
+                - assets ( folder for images, icons etc.)
+                - components (folder for all the reusable component files)
+                    - Navbar folder
+                        - Navbar.jsx
+                        - Navbar.scss
+                    - Button folder
+                           - Button.jsx
+                           - Button.scss
+                    - index.js (for export all components: )
+                            like:
+                             (index.js file to export all components)    export { default as Navbar } from "./Navbar/Navbar";
+                             (App.js to import all components)           import { Navbar, Button } from "./components";
+
+                - constants ( folder to store constant values like color, images etc.  EX:( import all images from assets and export them as constants))
+                    - colors.js
+                    - images.js   (import and export all images from assets)
+                                      ex:   => import about01 from "../assets/about01.png";
+                                            => export default { about01}
+                    - index.js 
+                          export { default as images } from "./images";
+                          to can be used to like in navbar component: 
+                                => import { images } from "../../constants";
+                                => <img src={images.logo} alt="logo" />
+                    
+                - container ( folder for all main components)
+                    - About folder
+                        - About.jsx
+                        - About.Scss
+                    - Footer folder
+                        - Footer.jsx
+                        - Footer.Scss
+                    - Header folder
+                        - Header.jsx
+                        - Header.Scss
+                    - index.js (for export all components: )
+                            like:
+                             (index.js file to export all components)    export { default as About } from "./About/About";
+                             to can be used to like in App.js file
+                             (App.js to import all components)           import { About, Footer, Header, Skills, Testimonial, Work } from "./container";
+
+                - App.js ( Main file where everything starts from)
+                - App.scss ( all classes that can be reused)
+                - index.js ( Entry point of the application )
+                - index.css  ( Stylesheet for the whole app) (hold Font, css Variables)
+
+2- Navbar 
+
+        - img
+        - <ul>
+                {["home", "about", "work", "skills", "contact"].map((item) => (
+                <li key={`link-${item}`}>
+                    <div />
+                    <a href={`#${item}`}> {item}</a>
+                </li>
+                ))}
+            </ul>
+
+3- use BEM  in css 
+                - stands for Block Element Modifier,
+                  which is a methodology for naming CSS classes in a way that makes your code more readable and maintainable.
+
+            1 =>    /* Block */ A standalone entity that is meaningful on its own. For example, a header, menu, button
+                                .header {
+                                    /* styles for the header block */
+                                }
+
+            2 =>   /* Element */  A part of a block that has no meaning outside of the block. For example, a menu item, a button's text
+                            .header__logo {
+                                /* styles for the logo element inside the header block */
+                            }
+
+                            .header__menu {
+                                /* styles for the menu element inside the header block */
+                            }
+
+            3 =>   /* Modifier */  A flag on a block or element that changes its appearance or behavior. 
+                    .header__menu--open {
+                        /* styles for the menu element when it is open */
+                    }
+
+        EX:
+            <nav className="app__navbar">
+            <div className="app__navbar-logo">
+            <ul className="app__navbar-links">
+            <li className="app__flex p-text"></li>
+
