@@ -4,35 +4,15 @@ import { motion } from "framer-motion";
 import { AppWrap } from "../../wrapper";
 import { images } from "../../constants";
 import "./About.scss";
-
-const abouts = [
-  {
-    title: "Web Development",
-    description:
-      "Experienced in developing robust and scalable web applications using modern technologies.",
-    imageUrl: images.about01,
-  },
-  {
-    title: "Frontend Development",
-    description:
-      "Skilled in creating interactive and user-friendly interfaces that meet client requirements.",
-    imageUrl: images.about02,
-  },
-  {
-    title: "Backend Development",
-    description:
-      "Proficient in designing and implementing efficient server-side logic for web applications.",
-    imageUrl: images.about03,
-  },
-  {
-    title: "MERN Stack",
-    description:
-      "Specialized in building full-stack applications using MongoDB, Express.js, React, and Node.js.",
-    imageUrl: images.about04,
-  },
-];
+import { client, urlFor } from "./../../client";
 
 const About = () => {
+  const [abouts, setAbouts] = useState([]);
+  useEffect(() => {
+    const query = '*[_type == "abouts"]';
+    client.fetch(query).then((data) => setAbouts(data));
+  }, []);
+
   return (
     <>
       <h2 className="head-text">
@@ -48,7 +28,7 @@ const About = () => {
             className="app__profile-item"
             key={about.title + index}
           >
-            <img src={about.imageUrl} alt={about.title} />
+            <img src={urlFor(about.imgUrl)} alt={about.title} />
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {about.title}
             </h2>
