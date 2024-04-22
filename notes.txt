@@ -88,3 +88,32 @@
             <ul className="app__navbar-links">
             <li className="app__flex p-text"></li>
 
+
+4- working with sanity => 
+    - installation and adding schemas for all components
+    - create client.js file to connect with sanity database
+
+5- update about section to fetch data from sanity database
+
+                import { client, urlFor } from "./../../client";
+                
+                const [abouts, setAbouts] = useState([]);
+
+                useEffect(() => {
+                    const query = '*[_type == "abouts"]';
+                    client.fetch(query).then((data) => setAbouts(data));
+                }, []);
+
+                <img src={urlFor(about.imgUrl)}
+                <h2>{about.title}</h2>
+
+
+    {[
+        { name: "html,css,js", projects: ["Basic Website", "Landing Page", "Portfolio"] },
+        { name: "React.js", projects: ["Single-page Application", "Interactive Web App", "Dashboard Interface"] },
+        { name: "Next.js", projects: ["Server-rendered React App", "SEO-friendly Website", "E-commerce Platform"] },
+        { name: "ReactNative", projects: ["Cross-platform Mobile App"] },
+        { name: "Node.js", projects: ["RESTful API", "Backend Service", "Real-time Application"] },
+        { name: "MERN", projects: ["Full-stack Web App"] },
+        { name: "All", projects: ["Mix of Various Projects"] },
+      ]}
