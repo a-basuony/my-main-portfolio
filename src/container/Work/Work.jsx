@@ -72,6 +72,7 @@ const Work = () => {
               <img src={urlFor(work.imgUrl)} alt={work.name} />
 
               <motion.div
+                initial={{ opacity: 0 }}
                 whileHover={{ opacity: [0, 1] }}
                 transition={{
                   duration: 0.25,
