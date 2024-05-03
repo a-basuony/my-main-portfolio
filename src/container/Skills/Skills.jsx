@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import AppWrap from "../../wrapper/AppWrap";
+
+import { MotionWrap, AppWrap } from "../../wrapper";
 import { client, urlFor } from "../../client";
+
 import "./Skills.scss";
-import MotionWrap from "../../wrapper/MotionWrap";
 
 const Skills = () => {
   const [experiences, setExperiences] = useState([]);
