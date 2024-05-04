@@ -34,8 +34,7 @@ const Navbar = () => {
                 <li key={item}>
                   <a
                     href={`#${item}`}
-                    onClick={(e) => {
-                      e.preventDefault();
+                    onClick={() => {
                       setToggle(false);
                     }}
                   >
