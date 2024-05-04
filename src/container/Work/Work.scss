@@ -72,6 +72,10 @@
       margin: 1rem;
     }
   }
+  @media screen and (max-width: 350px) {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .app__work-img {

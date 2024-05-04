@@ -24,15 +24,18 @@ const Footer = () => {
 
     const contact = {
       _type: "contact",
-      name: name,
-      email: email,
-      message: message,
+      name: formData.username,
+      email: formData.email,
+      message: formData.message,
     };
 
-    client.create(contact).then(() => {
-      setLoading(false);
-      setIsFormSubmitted(true);
-    });
+    client
+      .create(contact)
+      .then(() => {
+        setLoading(false);
+        setIsFormSubmitted(true);
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
@@ -48,7 +51,9 @@ const Footer = () => {
         </div>
         <div className="app__footer-card">
           <img src={images.mobile} alt="mobile" />
-          <a href="tel:+201125240491">01125240491</a>
+          <a href="tel:+201125240491" className="p-text">
+            01125240491
+          </a>
         </div>
       </div>
 
@@ -84,7 +89,7 @@ const Footer = () => {
             />
           </div>
           <button type="button" className="p-text" onClick={handleSubmit}>
-            {loading ? "Loading..." : "Send Message"}
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </div>
       ) : (
