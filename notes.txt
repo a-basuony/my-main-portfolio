@@ -8,6 +8,75 @@ How to Know Which HTML Element is Causing Vertical Scroll Bar
             background-color: yellow;
         } 
 
+=> lazy loading on scroll it will load when get it
+        <img src alt loading="lazy">
+
+=> how to connect with whatsapp
+    <a href="https://api.whatsapp.com/send?phone=+201125240491&amp;text=Hello" >contact whatsapp</a>
+
+=> how to send email 
+    <a href="mailto:ahmed@gmail.com" >Gmail</a>
+
+=> call the number
+    <a href="tel:01125240491" >Gmail</a>
+
+
+      // function handleSubmit() {
+  //   setLoading(true);
+
+  //   const contact = {
+  //     _type: "contact",
+  //     name: formData.name,
+  //     email: formData.email,
+  //     message: formData.message,
+  //   };
+
+  //   client
+  //     .create(contact)
+  //     .then(() => {
+  //       setLoading(false);
+  //       setIsFormSubmitted(true);
+  //     })
+  //     .catch((err) => console.log(err));
+
+  // }
+
+=> we use Email js library 
+    npm install it 
+    and then add this in your component
+
+        const form = useRef();
+
+    const handleChangeInput = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        emailjs
+        .sendForm("service_3m0b2wg", "template_sfr87um", form.current, {
+            publicKey: "_8MdLhn9_yF0p8_zC",
+        })
+        .then(
+            () => {
+            setLoading(false);
+            setIsFormSubmitted(true);
+            console.log("SUCCESS!");
+            },
+            (error) => {
+            console.log("FAILED...", error.text);
+            }
+        );
+    };
+
+     <form
+          ref={form}
+          onSubmit={sendEmail}
+        >
+
+
 
 1- in react 
         folders structure :
